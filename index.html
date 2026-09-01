@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>cart-checks</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, sans-serif; background: #fafafa; color: #1a1a1a;
+    display: grid; grid-template-columns: 1fr 320px; gap: 32px; padding: 32px; max-width: 900px; margin: 0 auto; }
+  h1 { grid-column: 1 / -1; margin: 0; }
+  .product { background: #fff; border: 1px solid #e5e5e5; border-radius: 10px; padding: 16px; margin-bottom: 12px;
+    display: flex; justify-content: space-between; align-items: center; }
+  .cart { background: #fff; border: 1px solid #e5e5e5; border-radius: 10px; padding: 16px; height: fit-content; }
+  .line { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; font-size: .9rem; }
+  .qty button { width: 24px; height: 24px; }
+  .totals { border-top: 1px solid #e5e5e5; margin-top: 12px; padding-top: 12px; font-size: .9rem; }
+  .totals .row { display: flex; justify-content: space-between; padding: 3px 0; }
+  .totals .grand { font-weight: 700; font-size: 1.05rem; }
+  button { font: inherit; border: 1px solid #ccc; border-radius: 6px; background: #fff; cursor: pointer; padding: 6px 10px; }
+  button.primary { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+  button:focus-visible { outline: 3px solid #1e6fff; outline-offset: 2px; }
+  #coupon-row { display: flex; gap: 6px; margin-top: 12px; }
+  #coupon-row input { flex: 1; min-width: 0; padding: 6px 8px; border: 1px solid #ccc; border-radius: 6px; font: inherit; }
+  #coupon-msg { font-size: .8rem; margin-top: 6px; min-height: 1em; }
+  #coupon-msg.ok { color: #157f3b; }
+  #coupon-msg.bad { color: #c0362c; }
+  #empty { color: #777; font-size: .9rem; }
+</style>
+</head>
+<body>
+  <h1>Corner Store</h1>
+
+  <main id="catalog" aria-label="Products"></main>
+
+  <aside class="cart" aria-label="Your cart">
+    <h2>Cart</h2>
+    <div id="lines"></div>
+    <p id="empty">Your cart is empty.</p>
+
+    <div id="coupon-row">
+      <label class="visually-hidden" for="coupon">Coupon code</label>
+      <input id="coupon" placeholder="Coupon code" />
+      <button id="apply" type="button">Apply</button>
+    </div>
+    <div id="coupon-msg" aria-live="polite"></div>
+
+    <div class="totals" id="totals"></div>
+  </aside>
+
+<script src="app.js"></script>
+</body>
+</html>

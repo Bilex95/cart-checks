@@ -1,0 +1,16 @@
+{
+  "name": "cart-checks",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shopping cart with coupons + VAT, tested with Cypress.",
+  "scripts": {
+    "start": "node serve.js",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open",
+    "test": "start-server-and-test start http://localhost:5173 cy:run"
+  },
+  "devDependencies": {
+    "cypress": "^13.15.0",
+    "start-server-and-test": "^2.0.8"
+  }
+}
