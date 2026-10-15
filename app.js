@@ -16,6 +16,7 @@ const linesEl = document.getElementById("lines");
 const emptyEl = document.getElementById("empty");
 const totalsEl = document.getElementById("totals");
 const couponMsg = document.getElementById("coupon-msg");
+const checkoutBtn = document.getElementById("checkout");
 
 const naira = (n) => "₦" + n.toLocaleString("en-NG", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 const product = (id) => PRODUCTS.find((p) => p.id === id);
@@ -78,6 +79,9 @@ function render() {
   linesEl.querySelectorAll("[data-remove]").forEach((b) => (b.onclick = () => setQty(b.dataset.remove, -9999)));
 
   emptyEl.hidden = cart.length > 0;
+  if (checkoutBtn) {
+    checkoutBtn.disabled = cart.length === 0;
+  }
 
   const sub = subtotal();
   const discount = Math.round(sub * (discountPct / 100));
